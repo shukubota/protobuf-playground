@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package healthcheck;
+
+option go_package = "server/protobuf";
+
+message GetStatusRequest {
+  string type = 1;
+}
+
+message GetStatusResponse {
+  string status = 1;
+}
+
+service HealthCheckService {
+  rpc GetStatus(GetStatusRequest) returns (GetStatusResponse);
+}
